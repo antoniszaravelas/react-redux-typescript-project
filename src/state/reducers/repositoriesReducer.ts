@@ -2,16 +2,22 @@
 import { Action } from "../actions";
 import { ActionType } from "../action-types";
 
-interface RepositoriesState {
+export interface RepositoriesState {
   loading: boolean;
   error: string | null;
   data: string[];
 }
 
+const initialState = {
+  loading: false,
+  error: null,
+  data: [],
+};
+
 // I said it will return a RepositoriesState so the return statement inside the switch
 // is of type RepositoriesState (so the data is not a number, string or sth else for example)
 export const reducer = (
-  state: RepositoriesState,
+  state: RepositoriesState = initialState,
   action: Action
 ): RepositoriesState => {
   switch (action.type) {
